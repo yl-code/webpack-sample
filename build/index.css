@@ -1,4 +1,1 @@
-body {
-  background-color: teal;
-}
-
+body{background-color:teal;display:-webkit-box;display:-ms-flexbox;display:flex}

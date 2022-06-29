@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return a; });\nconst a = 1;\n\n\n//# sourceURL=webpack:///./src/a.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return a; });\nconst a = 1;\n\nconsole.log('你好啊 传给下一个loader的参数-异步的');\n\n\n//# sourceURL=webpack:///./src/a.js?");
 
 /***/ }),
 
@@ -118,7 +118,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _a__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./a */ \"./src/a.js\");\n\n\nconsole.log('hello yl', _a__WEBPACK_IMPORTED_MODULE_1__[\"a\"]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ \"./src/index.less\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _a__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./a */ \"./src/a.js\");\n\n\n\nconsole.log('hello yl', _a__WEBPACK_IMPORTED_MODULE_2__[\"a\"]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/index.less":
+/*!************************!*\
+  !*** ./src/index.less ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n    const style = document.createElement(\"style\");\n\n    style.textContent = \"html body {\\n  background-color: pink;\\n}\\nhtml body h1 {\\n  color: teal;\\n}\\n\";\n\n    document.head.appendChild(style);\n  \n\n//# sourceURL=webpack:///./src/index.less?");
 
 /***/ })
 

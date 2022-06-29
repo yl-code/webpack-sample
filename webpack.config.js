@@ -44,14 +44,47 @@ module.exports = {
         test: /\.css$/,
         // style-loader 通过 DOM 操作将样式语句插入到 style 标签内部
         // use: ['style-loader', 'css-loader'],
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
+      // {
+      //   test: /\.less$/,
+      //   use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+      // },
+      //
+      //
+      // 自定义 loader 处理 less 文件
       {
         test: /\.less$/,
-        use: [],
+        use: ['my-style-loader', 'my-css-loader', 'my-less-loader'],
+      },
+      //
+      //
+      // 自定义 loader 处理 a.js 文件
+      {
+        test: /a\.js/,
+        // use: [
+        //   resolve(__dirname, './my-loader/my-loader.js'),
+        //   {
+        //     loader: resolve(__dirname, './my-loader/my-loader-async.js'),
+        //     options: { title: '你好啊' },
+        //   },
+        // ],
+        // 配置好了 resolveLoader 字段之后就不需要手动拼接自定义 loader 的路径了
+        use: [
+          'my-loader',
+          {
+            loader: 'my-loader-async',
+            options: { title: '你好啊' },
+          },
+        ],
       },
     ],
   }, // 通过 module.rules 来配置不同文件对应使用不同的 loader 进行加载
+
+  resolveLoader: {
+    modules: ['./node_modules', './my-loader'],
+  },
 };
 
 /**
@@ -63,7 +96,7 @@ module.exports = {
  * 传给 自执行函数 的参数称为 依赖图谱，也就是一个对象
  * {"模块的路径": 该模块被打包编译后生成的 chunk }
  *
- * chunk: 代码片段 一个 module 对应一个 chunk
+ * chunk: 代码片段, 一个 module 对应一个 chunk
  *
  * chunks: chunk 组，表示至少包含一个 chunk
  *
@@ -71,6 +104,6 @@ module.exports = {
  *
  * bundle: 一个 bundle 对应一个 chunkName
  *
- * module: 就是模块
+ * module: 模块，指的是一个文件
  *
  */
