@@ -26,5 +26,5 @@ module.exports = function (source) {
   const callback = this.async();
   setTimeout(() => {
     callback(null, info, null, '传给下一个loader的参数-异步的');
-  }, 2000);
+  }, 1);
 };

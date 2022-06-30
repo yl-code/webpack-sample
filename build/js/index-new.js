@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./public/images/logo.png":
+/*!********************************!*\
+  !*** ./public/images/logo.png ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"../img/logo-1656578735234.png\");\n\n//# sourceURL=webpack:///./public/images/logo.png?");
+
+/***/ }),
+
 /***/ "./src/a.js":
 /*!******************!*\
   !*** ./src/a.js ***!
@@ -118,18 +130,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ \"./src/index.less\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _a__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./a */ \"./src/a.js\");\n\n\n\nconsole.log('hello yl', _a__WEBPACK_IMPORTED_MODULE_2__[\"a\"]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _login_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.less */ \"./src/login.less\");\n/* harmony import */ var _a__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./a */ \"./src/a.js\");\n/* harmony import */ var _public_images_logo_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../public/images/logo.png */ \"./public/images/logo.png\");\n\n\n\n\n\nconsole.log(_public_images_logo_png__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\nconst img = new Image();\nimg.src = _public_images_logo_png__WEBPACK_IMPORTED_MODULE_3__[\"default\"];\nimg.width = 150;\nimg.height = 150;\nconst root = document.querySelector('#app');\nroot.appendChild(img);\n\nconsole.log('hello yl', _a__WEBPACK_IMPORTED_MODULE_2__[\"a\"]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/index.less":
+/***/ "./src/login.less":
 /*!************************!*\
-  !*** ./src/index.less ***!
+  !*** ./src/login.less ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("\n    const style = document.createElement(\"style\");\n\n    style.textContent = \"html body {\\n  background-color: pink;\\n}\\nhtml body h1 {\\n  color: teal;\\n}\\n\";\n\n    document.head.appendChild(style);\n  \n\n//# sourceURL=webpack:///./src/index.less?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/login.less?");
 
 /***/ })
 

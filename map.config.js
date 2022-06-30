@@ -1,19 +1,49 @@
-const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { resolve, join } = require('path');
+const glob = require('glob');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+/**
+ * 多页面打包通用方案
+ *
+ * 约定所有的页面入口模块和相应的 html 模版都放在同一个目录下面，如： detail、list
+ *
+ * setMPA 要做的就是提取页面入口的名称用于 entry 的 chunkName
+ */
+
+const setMPA = () => {
+  const entry = {};
+  const htmlWebpackPlugins = [];
+
+  const entryPath = glob.sync(join(__dirname, './src/*/index.js'));
+
+  entryPath.map((path) => {
+    const entryName = path.match(/src\/(.*)\/index\.js$/)[1]; // 拿到入口文件名
+    entry[entryName] = path;
+
+    htmlWebpackPlugins.push(
+      new HtmlWebpackPlugin({
+        template: join(__dirname, `./src/${entryName}/index.html`),
+        filename: `html/${entryName}.html`,
+        chunks: [entryName],
+      })
+    );
+  });
+
+  return { entry, htmlWebpackPlugins };
+};
+
+const { entry, htmlWebpackPlugins } = setMPA();
 
 module.exports = {
   // spa 入口
   // entry: './src/index.js',
   // mpa 入口
-  entry: {
-    index: './src/index.js',
-    login: './src/login.js',
-  }, // 打包的入口
+  entry, // 打包的入口
 
   output: {
-    path: resolve(__dirname, './build'), // 存放所生成资源的位置，必须是绝对路径
+    path: resolve(__dirname, './build_mpa'), // 存放所生成资源的位置，必须是绝对路径
     // filename: 'index.js', // 生成的资源文件名
     filename: 'js/[name]-new.js', // [name] 表示的是占位符
   }, // 打包产物的出口
@@ -26,16 +56,20 @@ module.exports = {
     }), // 将 css 文件抽取生成单独的文件
 
     new CleanWebpackPlugin(), // 清除上一次打包的产物
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'html/index.html',
-      chunks: ['index'],
-    }), // 以 template 为模版创建一个 html 文件并通过 script 引入对应的 chunks
-    new HtmlWebpackPlugin({
-      template: './public/login.html',
-      filename: 'html/login.html',
-      chunks: ['login'],
-    }),
+    //
+    //
+    ...htmlWebpackPlugins,
+    //
+    // new HtmlWebpackPlugin({
+    //   template: './public/index.html',
+    //   filename: 'html/index.html',
+    //   chunks: ['index'],
+    // }), // 以 template 为模版创建一个 html 文件并通过 script 引入对应的 chunks
+    // new HtmlWebpackPlugin({
+    //   template: './public/login.html',
+    //   filename: 'html/login.html',
+    //   chunks: ['login'],
+    // }),
   ], // 通过各种 plugin 来增强 webpack 的打包能力
 
   module: {
@@ -92,7 +126,7 @@ module.exports = {
               limit: 1024, // 单位 kb，当图片大小 小于 1024 KB 时，才将图片转换为 base64 编码
             },
           },
-          'image-webpack-loader', // 进行图片压缩 必须使用 cnpm 安装才行
+          'image-webpack-loader', // 进行图片压缩
         ],
       },
       {

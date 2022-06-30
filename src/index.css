@@ -1,4 +1,19 @@
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url('../public/font/webfont.woff2') format('woff2');
+}
+
 body {
   display: flex;
   background-color: teal;
+}
+
+h1 {
+  background: url(../public/images/logo.png) 0 0;
+}
+
+.webfont {
+  font-family: 'webfont' !important;
+  font-size: 50px;
 }

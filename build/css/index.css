@@ -1,0 +1,8 @@
+@font-face{font-display:swap;font-family:webfont;src:url(../font/webfont.woff2) format("woff2")}body{background-color:teal;display:-webkit-box;display:-ms-flexbox;display:flex}h1{background:url(../img/logo-1656578735234.png) 0 0}.webfont{font-family:webfont!important;font-size:50px}
+html body {
+  background-color: pink;
+}
+html body h1 {
+  color: teal;
+}
+
