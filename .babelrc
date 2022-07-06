@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "54"
+        },
+        "corejs": 2, // corejs 的版本
+        // entry: 需要在 webpack 打包的入口文件里 import “@babel/polyfill“
+        // usage: 不需要上面的操作，全自动
+        // false: 默认值
+        "useBuiltIns": "entry"
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}
