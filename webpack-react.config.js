@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TxtWebpackPlugin = require('./my-plugin/txt-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -20,6 +21,9 @@ module.exports = {
       filename: 'html/index.html',
     }),
     new CleanWebpackPlugin(),
+    new TxtWebpackPlugin({
+      title: '这是一个自定义 plugin 的配置',
+    }),
   ], // 通过各种 plugin 来增强 webpack 的打包能力
 
   module: {
