@@ -1,0 +1,19 @@
+{
+  "name": "0-mini-webpack",
+  "version": "1.0.0",
+  "description": "mini webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "node bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/parser": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/traverse": "^7.18.6"
+  },
+  "devDependencies": {}
+}
